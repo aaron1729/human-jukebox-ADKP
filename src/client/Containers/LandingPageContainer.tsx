@@ -2,6 +2,7 @@ import React from 'react';
 import SearchInput from '../Components/SearchInput';
 import SpotifySignIn from '../Components/SpotifySignIn';
 import SignUpPage from '../Components/SignUpPage';
+import AddSong from '../Components/AddSong';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import PrivateMusicianContainer from './PrivateMusicianContainer';
 
@@ -48,8 +49,8 @@ function LandingPageContainer(){
     <div className="landing-page flex flex-col items-center">
       <h1 className ="fl text-4xl font-bold text-fuchsia-700 mx-10 my-5">Welcome to Human Jukebox!</h1>
       <hr />
-      <SpotifySignIn />
-      <hr />
+      {/* <SpotifySignIn /> */}
+      {/* <hr /> */}
       <button onClick={authWindow} className="bg-green-500 hover:bg-green-400 text-black font-bold py-2 px-4 mt-5 mb-10 rounded-full">
         new button: Signup/Login with Spotify!
       </button>
@@ -73,6 +74,7 @@ function LandingPageContainer(){
         a button that uses useNavigate to go to the signup page
       </button>
       <br />
+      <AddSong />
       {/* <button onClick={() => navigate('/musician/private?artist=abc')}>
         another button that uses useNavigate
       </button>

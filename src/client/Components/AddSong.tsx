@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCookies } from 'react-cookie';
+import { isAssertEntry } from 'typescript';
 import SongDisplay from './SongDisplay';
 
 
@@ -47,10 +48,10 @@ const AddSong = () => {
     fetch(uri, options)
     .then(response => response.json())
     .then(data => {
-      console.log('response datums are: ', data)
-      //const songsArr = [];
+      console.log('response datums are: ', data.tracks.items.map((entry: any) => 'name is ' + entry.name + '\nspotify_id is ' + entry.id + '\nartist name is ' + entry.artists[0].name + '\nartist id is ' + entry.artists[0].id + '\nalbum name is ' + entry.album.name + '\npopularity is '+ entry.popularity + '\npreview url is ' + entry.preview_url))
       for(let track of data.tracks.items){
-        console.log('track name and artist name: ', track.name + ' by the artist ' + track.artists[0].name)
+        // it seems that these are ordered by decreasing popularity!
+        console.log('the track name is ', track.name + ' and the (first-listed) artist is ' + track.artists[0].name)
         setSongData({songsArr: [...songsData.songsArr,<SongDisplay key={track.external_ids.isrc} title={track.name} artist={track.artists[0].name} genre='unknown'/>]})
       }
     })

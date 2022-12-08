@@ -24,7 +24,7 @@ function PrivateMusicianContainer(){
       </Link>
 
       {/* <MusicianInfo /> */}
-      {/* <AddSong /> */}
+      <AddSong />
       {
         /*contains all of the musician data:
           bio, venmo, songs, tags, edit options
